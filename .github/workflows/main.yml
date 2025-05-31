@@ -10,4 +10,4 @@ jobs:
       - name: Run Skims
         uses: docker://docker.io/fluidattacks/skims:latest
         with:
-          args: skims --strict --debug scan .
+          args: skims --strict scan .
