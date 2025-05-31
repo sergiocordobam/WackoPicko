@@ -1,11 +1,28 @@
-name: Standalone CLI
-on: [push, pull_request]
+name: Fluid CLI Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
-   machineStandalone:
-      runs-on: ubuntu-latest
-      steps:
-         - uses: actions/checkout@f095bcc56b7c2baf48f3ac70d6d6782f4f553222
-         - uses: docker://docker.io/fluidattacks/skims:latest
-           name: skimsStandalone
-           with:
-             args: skims --strict scan . --config config.yaml
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install Fluid CLI
+      run: pip install fluidattacks
+
+    - name: Run Fluid CLI scan
+      run: fluid att run --strict --config config.yaml
