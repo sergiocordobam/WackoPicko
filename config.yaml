@@ -1,6 +1,10 @@
-mode: dast
-failLevel: high
-severity: medium
-exclude:
-  - node_modules/
-  - website/
+namespace: myapp
+output:
+  file_path: ./Fluid-Attacks-Results.csv
+  format: CSV
+working_dir: .
+language: EN
+sast:
+  include:
+    - .
+strict: true
