@@ -1,4 +1,4 @@
-mode: sast
+mode: dast
 failLevel: high
 severity: medium
 exclude:
