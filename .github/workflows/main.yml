@@ -25,4 +25,4 @@ jobs:
       run: pip install fluidattacks
 
     - name: Run Fluid CLI scan
-      run: fluid att run --strict --config config.yaml
+      run: python -m fluidattacks att run --strict --config config.yaml
