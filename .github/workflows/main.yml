@@ -9,3 +9,11 @@ jobs:
            name: skimsStandalone
            with:
              args: skims scan config.yaml
+         - name: Results
+           uses: actions/upload-artifact@v4
+           if: always()
+           with:
+             name: fluid-attacks-scan-results
+             path: ./Fluid-Attacks-Results.csv
+             retention-days: 30
+         
