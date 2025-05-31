@@ -3,3 +3,4 @@ failLevel: high
 severity: medium
 exclude:
   - node_modules/
+  - website/
